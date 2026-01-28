@@ -1,14 +1,13 @@
-# Singleton
+# Factory Method
 
 ## Intent
 
 Factory Method is a creational design pattern that provides an interface for creating objects in a superclass, but allows subclasses to
 alter the type of objects that will be created.
 
-## Detailed Explanation of Singleton Pattern with Real-World Examples
+## Detailed Explanation of Factory Method Pattern with Real-World Examples
 
 Real-world example
-
 
 > Imagine a logistics company that needs to deliver different types of packages: standard, express, and oversized. The company has a central
 > system that processes delivery requests but does not know the specifics of how each package type is handled. To manage this, the company
