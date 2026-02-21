@@ -40,7 +40,7 @@ diagrams and working code.
 
 - **[Builder](https://github.com/Natanius18/java-design-patterns/tree/master/creational/builder)** - Constructs complex objects step by step
     - *Gym Example:* **WorkoutPlanBuilder** - Creates personalized plans avoiding "telescoping constructors":
-        
+
       ```java
         .setGoal(WeightLoss.class)
         .addExercise(TreadmillRun.class, 3, 20)
@@ -51,8 +51,8 @@ diagrams and working code.
         .build();
       ```
       Same builder produces vastly different plans (beginner vs advanced, cardio vs strength focus). Fluent interface prevents invalid
-    states (no goal set), supports previewing partial plans, and enables trainers to save/load partially completed plans. Adding new
-    exercises or diets requires only builder method extensions.
+      states (no goal set), supports previewing partial plans, and enables trainers to save/load partially completed plans. Adding new
+      exercises or diets requires only builder method extensions.
 
 - **[Prototype](https://github.com/Natanius18/java-design-patterns/tree/master/creational/prototype)** - Clones objects
     - *Gym Example:* **WorkoutTemplate Cloning** - Stores 50+ proven templates ("Beginner Fat Burn", "Powerlifter 5x5", "Marathon Prep").
@@ -62,6 +62,7 @@ diagrams and working code.
       versioning ("BeginnerFatBurn_v2.1").
 
 ### Structural Patterns
+
 - **Adapter** - Makes incompatible interfaces compatible
 - **Bridge** - Separates abstraction from implementation
 - **Composite** - Composes objects into tree structures
@@ -105,7 +106,12 @@ diagrams and working code.
       entry errors, database save/restore survives crashes. `WorkoutTracker` hides state structure; only progress visible. Coach compares
       `memento1.diff(memento2)` for progress reports.
 
-- **Observer** - Notifies dependent objects about changes
+- **[Observer](https://github.com/Natanius18/java-design-patterns/tree/master/behavioral/observer)** - Notifies dependent objects about
+  changes
+    - *Gym Example:* **ClassNotifier** - `ClassSchedule` change (time/location/cancelled) →
+      `notifyObservers(Channel.EMAIL, Channel.SMS, Channel.APP)`. Members register preferences per class type (yoga→email; spin→SMS).
+      Unsubscribe anytime. Adding FacebookNotifier, WhatsAppNotifier requires only new observer—notifier schedule changes. Push vs polling
+      eliminates "class moved, I showed up at wrong time" issues.
 
 - **[State](https://github.com/Natanius18/java-design-patterns/tree/master/behavioral/state)** - Changes object behavior when state changes
     - *Gym Example:* **MembershipState** - `ActiveState`: full access, auto-renew; `SuspendedState`: gym only, payment prompts;
