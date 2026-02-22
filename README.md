@@ -125,5 +125,11 @@ diagrams and working code.
       `AnnualDiscounted($490)`, `PayPerVisit($15)`, `CorporateBulk(10%off)`. Switch at renewal without recompiling. `calculateCharge()`
       delegates to current strategy. Adding FamilyPlanStrategy, ReferralDiscount requires only new strategy class.
 
-- **Template Method** - Defines algorithm skeleton
+- **[Template Method](https://github.com/Natanius18/java-design-patterns/tree/master/behavioral/template-method)** - Defines algorithm
+  skeleton
+    - *Gym Example:* **WorkoutSession Template** - `abstract class WorkoutSession`: `warmUp()` (5min dynamic stretch—final),
+      `mainWorkout()` (abstract), `coolDown()` (static stretch + foam roll—final), `logSession()` (final). `StrengthSession.mainWorkout()` =
+      compounds + accessories; `CardioSession.mainWorkout()` = intervals. All sessions follow proven structure while customizing core.
+      Adding MobilitySession requires only `mainWorkout()` override.
+
 - **Visitor** - Performs operations on objects without changing their classes
