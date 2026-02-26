@@ -132,4 +132,9 @@ diagrams and working code.
       compounds + accessories; `CardioSession.mainWorkout()` = intervals. All sessions follow proven structure while customizing core.
       Adding MobilitySession requires only `mainWorkout()` override.
 
-- **Visitor** - Performs operations on objects without changing their classes
+- **[Visitor](https://github.com/Natanius18/java-design-patterns/tree/master/behavioral/visitor)** - Performs operations on objects without
+  changing their classes
+    - *Gym Example:* **EquipmentMaintenanceVisitor** - `RoutineCheckVisitor` (visual inspection, lubrication); `CalibrationVisitor`
+      (sensors, displays); `DeepCleanVisitor` (disassembly). `equipment.accept(visitor)` double-dispatches: Treadmill calibrates belt speed,
+      Barbell checks rust. Adding SafetyInspectionVisitor, InventoryAuditVisitor—no equipment class changes despite 10+ operations × 50
+      equipment types.
