@@ -70,7 +70,11 @@ diagrams and working code.
       translates: wraps legacy treadmill, maps speed→metric logging, batches heart-rate data into sessions, handles polling loops. Both
       old/new equipment integrate seamlessly into single dashboard showing "Treadmill #7: 45min, 420cal". Saves money replacing 20 machines
       while enabling unified analytics/ML predictions.
-- **Bridge** - Separates abstraction from implementation
+- **[Bridge](https://github.com/Natanius18/java-design-patterns/tree/master/structural/bridge)** - Separates abstraction from implementation
+    - *Gym Example:* **Exercise-Equipment Bridge** - `CardioExercise` abstraction works with `TreadmillImpl`, `StationaryBikeImpl`,
+      `RowingMachineImpl` via `Equipment` interface (`startSession()`, `setResistance()`, `getPerformanceData()`). Adding PelotonBike
+      requires only new impl—no changes to 30+ `CardioExercise` subclasses (HIIT, SteadyState, Interval). Similarly, new `HIITExercise`
+      works across all cardio equipment. Decouples evolution: equipment vendors change yearly; exercise protocols stable decades.
 - **Composite** - Composes objects into tree structures
 - **Decorator** - Adds functionality to objects
 - **Facade** - Provides simplified interface to complex subsystem
