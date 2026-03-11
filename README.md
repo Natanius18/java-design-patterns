@@ -63,7 +63,13 @@ diagrams and working code.
 
 ### Structural Patterns
 
-- **Adapter** - Makes incompatible interfaces compatible
+- **[Adapter](https://github.com/Natanius18/java-design-patterns/tree/master/structural/adapter)** - Makes incompatible interfaces
+  compatible
+    - *Gym Example:* **LegacyEquipmentAdapter** - 15-year-old Precor treadmills expose `startMotor(int speed)`, `readHeartRate()`,
+      `stopMotor()` while new analytics expect `initializeSession()`, `logMetric(MetricType type, double value)`, `endSession()`. Adapter
+      translates: wraps legacy treadmill, maps speed→metric logging, batches heart-rate data into sessions, handles polling loops. Both
+      old/new equipment integrate seamlessly into single dashboard showing "Treadmill #7: 45min, 420cal". Saves money replacing 20 machines
+      while enabling unified analytics/ML predictions.
 - **Bridge** - Separates abstraction from implementation
 - **Composite** - Composes objects into tree structures
 - **Decorator** - Adds functionality to objects
