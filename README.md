@@ -75,7 +75,13 @@ diagrams and working code.
       `RowingMachineImpl` via `Equipment` interface (`startSession()`, `setResistance()`, `getPerformanceData()`). Adding PelotonBike
       requires only new impl—no changes to 30+ `CardioExercise` subclasses (HIIT, SteadyState, Interval). Similarly, new `HIITExercise`
       works across all cardio equipment. Decouples evolution: equipment vendors change yearly; exercise protocols stable decades.
-- **Composite** - Composes objects into tree structures
+- **[Composite](https://github.com/Natanius18/java-design-patterns/tree/master/structural/composite)** - Composes objects into tree
+  structures
+    - *Gym Example:* **WorkoutProgram Tree** - `Program` (Ironman Prep) contains `Routine` (Week1) contains `ExerciseGroup` (Lower Body)
+      contains `Exercise` (Squats, Lunges). All implement `Component` interface: `execute()` (perform routine/group/exercise),
+      `getDuration()` (program: 12 weeks; routine: 60 min; exercise: 10 min), `getCalories()`. `program.getTotalCalories()` recursively sums tree.
+      Staff schedules "execute entire program" or "just today's routine" uniformly. Adding sub-routines or super-programs requires no
+      interface changes.
 - **Decorator** - Adds functionality to objects
 - **Facade** - Provides simplified interface to complex subsystem
 - **Flyweight** - Efficiently shares common data
