@@ -82,7 +82,12 @@ diagrams and working code.
       `getDuration()` (program: 12 weeks; routine: 60 min; exercise: 10 min), `getCalories()`. `program.getTotalCalories()` recursively sums tree.
       Staff schedules "execute entire program" or "just today's routine" uniformly. Adding sub-routines or super-programs requires no
       interface changes.
-- **Decorator** - Adds functionality to objects
+- **[Decorator](https://github.com/Natanius18/java-design-patterns/tree/master/structural/decorator)** - Adds functionality to objects
+    - *Gym Example:* **MembershipDecorator** - `BaseMembership` (\$29) → `PersonalTrainingDecorator` (+3hr training, +\$50) →
+      `NutritionDecorator` (+weekly consults, +\$20) → `SpaAccessDecorator` (+sauna/massage, +\$15) = VIP package. Each decorator adds cost,
+      entitlements, and UI features without `Membership` becoming 500-line conditional nightmare. Runtime switching: pause spa access during
+      billing disputes. Unlimited combinations (15+ features → 32K+ packages) without combinatorial explosion.
+
 - **Facade** - Provides simplified interface to complex subsystem
 - **Flyweight** - Efficiently shares common data
 - **Proxy** - Controls access to objects
