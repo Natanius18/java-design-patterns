@@ -88,9 +88,17 @@ diagrams and working code.
       entitlements, and UI features without `Membership` becoming 500-line conditional nightmare. Runtime switching: pause spa access during
       billing disputes. Unlimited combinations (15+ features → 32K+ packages) without combinatorial explosion.
 
-- **Facade** - Provides simplified interface to complex subsystem
+- **[Facade](https://github.com/Natanius18/java-design-patterns/tree/master/structural/facade)** - Provides simplified interface to complex
+  subsystem
+    - *Gym Example:* **GymFacade** - `checkIn(memberId)` orchestrates: validate membership → log attendance → notify trainer → reserve
+      locker → charge day pass → SMS confirmation. Hides 7 subsystems (Auth, Attendance, TrainerAssignment, LockerMgmt, Billing, QueueMgmt,
+      Notification). Front desk calls 1 method vs 15 cross-system calls. Adding SaunaCheckIn requires only facade extension. Members see
+      simple API; complexity contained.
 - **Flyweight** - Efficiently shares common data
-- **Proxy** - Controls access to objects
+- **[Proxy](https://github.com/Natanius18/java-design-patterns/tree/master/structural/proxy)** - Controls access to objects
+    - *Gym Example:* **EquipmentAccessProxy** - Wraps premium resources (CryoChamber: $25/3min).
+      `requestAccess(member)` checks: membership level (VIP only), usage limit (3x/week), time slot, maintenance status, queue position. Logs for billing, enforces cleanup, virtual waitlist. Basic members get "Upgrade: +$
+      99/month". Transparent to equipment (same `startSession()` calls). Adding new rules (doctor note required) modifies only proxy.
 
 ### Behavioral Patterns
 
