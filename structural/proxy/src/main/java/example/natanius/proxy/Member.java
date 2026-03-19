@@ -1,5 +1,8 @@
 package example.natanius.proxy;
 
+import lombok.Getter;
+
+@Getter
 public class Member {
     private final String name;
     private final MembershipLevel level;
@@ -10,8 +13,5 @@ public class Member {
         this.level = level;
     }
 
-    public String getName() { return name; }
-    public MembershipLevel getLevel() { return level; }
-    public int getWeeklyUsageCount() { return weeklyUsageCount; }
     public void incrementUsage() { weeklyUsageCount++; }
 }
