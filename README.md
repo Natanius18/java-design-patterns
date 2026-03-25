@@ -94,7 +94,11 @@ diagrams and working code.
       locker → charge day pass → SMS confirmation. Hides 7 subsystems (Auth, Attendance, TrainerAssignment, LockerMgmt, Billing, QueueMgmt,
       Notification). Front desk calls 1 method vs 15 cross-system calls. Adding SaunaCheckIn requires only facade extension. Members see
       simple API; complexity contained.
-- **Flyweight** - Efficiently shares common data
+- **[Flyweight](https://github.com/Natanius18/java-design-patterns/tree/master/structural/flyweight)** - Efficiently shares common data
+    - *Gym Example:* **ExerciseData Flyweight** - 500 exercises × 5K members = 2.5M duplicates. Flyweight factory caches `ExerciseData` ("
+      Bench Press: chest/shoulders, 3x8-12, 90s rest") once per exercise. Member plans hold only extrinsic state (
+      johnsPlan.benchPress.weight=135lbs, repsCompleted=10). Saves 95% memory, enables fast searching ("find all chest exercises"), instant
+      template generation. Adding exercise metadata (videoURL, muscle diagram) updates globally.
 - **[Proxy](https://github.com/Natanius18/java-design-patterns/tree/master/structural/proxy)** - Controls access to objects
     - *Gym Example:* **EquipmentAccessProxy** - Wraps premium resources (CryoChamber: $25/3min).
       `requestAccess(member)` checks: membership level (VIP only), usage limit (3x/week), time slot, maintenance status, queue position. Logs for billing, enforces cleanup, virtual waitlist. Basic members get "Upgrade: +$
